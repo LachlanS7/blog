@@ -1,12 +1,17 @@
-+++
-title = 'ÅngstromCTF 2021 - Substitution'
-date = 2021-04-16T16:59:06+10:30
-draft = false
-math = true
-summary = "The summary content"
-+++
+---
+layout: post
+title: ÅngstromCTF 2021 - Substitution
+date: 2021-04-08T13:12:52.939Z
+summary: "A write up for the ÅngstromCTF crypto challenge substitution "
+author: lachlan
+categories:
+  - ctf
+  - write-ups
+mathJax: true
+---
 
 # ÅngstromCTF 2021 -- Substitution
+> Author: EvilMuffinHa
 
 For this challenge we are given a source file and a netcat server which presumably runs the source. Looking through the source code, we see that a integer is taken in as input and using this input, the flag is encrypted. The source is as follows:
 
@@ -48,7 +53,7 @@ After researching what the reduce function does, we see that we are essentially 
 
 $$f(x,y) = kx+y$$
 
-where $k$ is the user input, $x$ is the previous result and $y$ is the next character in the flag. As $f$ is a linear function, we can produce the following linear equation.
+where \\(k\\) is the user input, $x$ is the previous result and $y$ is the next character in the flag. As $f$ is a linear function, we can produce the following linear equation.
 
 $$g(k) \equiv x_0 k^{n-1}+x_1 k^{n-2}+...+x_{n-2} k+x_{n-1} \pmod{691}$$
 
@@ -104,4 +109,6 @@ print(flag)
 ```
 
 Sure enough, after a minute or so of running, we get the flag!
+
+`actf{polynomials_20a829322766642530cf69}`
 

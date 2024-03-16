@@ -23,6 +23,7 @@ pygmentsUseClasses = true
   headerIcon = "/images/GitHub-Mark-Light-32px.png"
   location = "Australia"
   enableGitalk = true
+  math = true
 
   [params.gitalk]
     clientID = "Your client ID"
