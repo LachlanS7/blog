@@ -3,13 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2024-03-16T16:43:54+10:30</lastmod>
+    <lastmod>2024-03-16T20:59:48+10:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/post/</loc>
-    <lastmod>2024-03-16T16:43:54+10:30</lastmod>
+    <lastmod>2024-03-16T20:59:48+10:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/test_post/</loc>
-    <lastmod>2024-03-16T16:43:54+10:30</lastmod>
+    <loc>http://localhost:1313/post/test/test_post/</loc>
+    <lastmod>2024-03-16T16:44:31+10:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/2021/angstromctf/substitution/</loc>
+    <lastmod>2024-03-16T20:59:48+10:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
   </url><url>
