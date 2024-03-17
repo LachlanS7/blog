@@ -2,7 +2,7 @@ baseURL = 'https://lachlans7.github.io/blog/'
 languageCode = 'en-us'
 title = "LachlanS7's Blog"
 theme = 'github-style'
-CanonifyURLs=true
+RelativeURLs=true
 
 googleAnalytics = "UA-123456-789"
 pygmentsCodeFences = true
