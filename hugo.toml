@@ -1,8 +1,7 @@
-baseURL = 'https://lachlans7.github.io/blog/'
+baseURL = ''
 languageCode = 'en-us'
 title = "LachlanS7's Blog"
 theme = 'github-style'
-RelativeURLs=true
 
 googleAnalytics = "UA-123456-789"
 pygmentsCodeFences = true
