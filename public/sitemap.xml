@@ -3,22 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2024-03-17T01:04:08+10:30</lastmod>
+    <lastmod>2024-03-17T02:36:24+10:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/post/</loc>
-    <lastmod>2024-03-17T01:04:08+10:30</lastmod>
+    <lastmod>2024-03-17T02:36:24+10:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/test/test_post/</loc>
-    <lastmod>2024-03-16T21:48:26+10:30</lastmod>
+    <loc>http://localhost:1313/readme/</loc>
+    <lastmod>2024-03-17T01:50:06+10:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2024-03-17T01:04:08+10:30</lastmod>
+    <lastmod>2024-03-17T01:14:30+10:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/crypto/</loc>
     <lastmod>2024-03-17T00:32:25+10:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/ctf/</loc>
-    <lastmod>2024-03-17T01:04:08+10:30</lastmod>
+    <lastmod>2024-03-17T01:14:30+10:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/post/2023/duckctf/a_based_crypto_challenge/</loc>
     <lastmod>2024-03-17T00:32:25+10:30</lastmod>
@@ -36,16 +36,16 @@
     <lastmod>2024-03-17T00:33:08+10:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/post/2023/duckctf/the_lost_book/</loc>
-    <lastmod>2024-03-17T01:04:08+10:30</lastmod>
+    <lastmod>2024-03-17T01:14:30+10:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/osint/</loc>
-    <lastmod>2024-03-17T01:04:08+10:30</lastmod>
+    <lastmod>2024-03-17T01:14:30+10:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/pwn/</loc>
     <lastmod>2024-03-17T00:33:08+10:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/write-ups/</loc>
-    <lastmod>2024-03-17T01:04:08+10:30</lastmod>
+    <lastmod>2024-03-17T01:14:30+10:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/post/2021/angstromctf/substitution/</loc>
     <lastmod>2024-03-17T00:39:04+10:30</lastmod>
