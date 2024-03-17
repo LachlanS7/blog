@@ -53,6 +53,8 @@ jobs:
           # For maximum backward compatibility with Hugo modules
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
+          HUGO_PARAMS_gitalk_clientID: ${{ secrets.GITALKID }}
+          HUGO_PARAMS_gitalk_clientSecret: ${{ secrets.GITALKSECRET }}
         run: |
           hugo \
             --minify
