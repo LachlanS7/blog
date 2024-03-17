@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on LachlanS7&#39;s Blog</title>
-    <link>https://lachlans7.com/categories/</link>
+    <link>http://localhost:1313/categories/</link>
     <description>Recent content in Categories on LachlanS7&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 17 Mar 2024 22:45:16 +1030</lastBuildDate>
-    <atom:link href="https://lachlans7.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ctf</title>
-      <link>https://lachlans7.com/categories/ctf/</link>
+      <link>http://localhost:1313/categories/ctf/</link>
       <pubDate>Sun, 17 Mar 2024 17:22:12 +1030</pubDate>
-      <guid>https://lachlans7.com/categories/ctf/</guid>
+      <guid>http://localhost:1313/categories/ctf/</guid>
       <description></description>
     </item>
     <item>
       <title>Pwn</title>
-      <link>https://lachlans7.com/categories/pwn/</link>
+      <link>http://localhost:1313/categories/pwn/</link>
       <pubDate>Sun, 17 Mar 2024 17:22:12 +1030</pubDate>
-      <guid>https://lachlans7.com/categories/pwn/</guid>
+      <guid>http://localhost:1313/categories/pwn/</guid>
       <description></description>
     </item>
     <item>
       <title>Write-Ups</title>
-      <link>https://lachlans7.com/categories/write-ups/</link>
+      <link>http://localhost:1313/categories/write-ups/</link>
       <pubDate>Sun, 17 Mar 2024 17:22:12 +1030</pubDate>
-      <guid>https://lachlans7.com/categories/write-ups/</guid>
+      <guid>http://localhost:1313/categories/write-ups/</guid>
       <description></description>
     </item>
     <item>
       <title>Crypto</title>
-      <link>https://lachlans7.com/categories/crypto/</link>
+      <link>http://localhost:1313/categories/crypto/</link>
       <pubDate>Fri, 04 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>https://lachlans7.com/categories/crypto/</guid>
+      <guid>http://localhost:1313/categories/crypto/</guid>
       <description></description>
     </item>
     <item>
       <title>Osint</title>
-      <link>https://lachlans7.com/categories/osint/</link>
+      <link>http://localhost:1313/categories/osint/</link>
       <pubDate>Fri, 04 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>https://lachlans7.com/categories/osint/</guid>
+      <guid>http://localhost:1313/categories/osint/</guid>
       <description></description>
     </item>
   </channel>

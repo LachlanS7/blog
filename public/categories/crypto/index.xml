@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Crypto on LachlanS7&#39;s Blog</title>
-    <link>https://lachlans7.com/categories/crypto/</link>
+    <link>http://localhost:1313/categories/crypto/</link>
     <description>Recent content in Crypto on LachlanS7&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 17 Mar 2024 00:32:25 +1030</lastBuildDate>
-    <atom:link href="https://lachlans7.com/categories/crypto/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/crypto/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DuckCTF 2023 - A Based Crypto Challenge</title>
-      <link>https://lachlans7.com/post/2023/duckctf/a_based_crypto_challenge/</link>
+      <link>http://localhost:1313/post/2023/duckctf/a_based_crypto_challenge/</link>
       <pubDate>Fri, 04 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>https://lachlans7.com/post/2023/duckctf/a_based_crypto_challenge/</guid>
+      <guid>http://localhost:1313/post/2023/duckctf/a_based_crypto_challenge/</guid>
       <description>There&amp;rsquo;s not much to say here other than this challenge is BASED.</description>
     </item>
     <item>
       <title>DuckCTF 2023 - Homebrewed Block Cipher</title>
-      <link>https://lachlans7.com/post/2023/duckctf/homebrewed_block_cipher/</link>
+      <link>http://localhost:1313/post/2023/duckctf/homebrewed_block_cipher/</link>
       <pubDate>Fri, 04 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>https://lachlans7.com/post/2023/duckctf/homebrewed_block_cipher/</guid>
+      <guid>http://localhost:1313/post/2023/duckctf/homebrewed_block_cipher/</guid>
       <description>I have finally created my own, completely secure, cipher. I am so confident that I will even allow you to encrypt your own data with it.</description>
     </item>
     <item>
       <title>DuckCTF 2023 - Not So Standard Substitution Cipher</title>
-      <link>https://lachlans7.com/post/2023/duckctf/not_so_standard_substitution_cipher/</link>
+      <link>http://localhost:1313/post/2023/duckctf/not_so_standard_substitution_cipher/</link>
       <pubDate>Fri, 04 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>https://lachlans7.com/post/2023/duckctf/not_so_standard_substitution_cipher/</guid>
+      <guid>http://localhost:1313/post/2023/duckctf/not_so_standard_substitution_cipher/</guid>
       <description>Frequency analysis with entropy</description>
     </item>
   </channel>

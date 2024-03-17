@@ -2,57 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://lachlans7.com/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
     <lastmod>2024-03-17T22:45:16+10:30</lastmod>
   </url><url>
-    <loc>https://lachlans7.com/categories/ctf/</loc>
+    <loc>http://localhost:1313/categories/ctf/</loc>
     <lastmod>2024-03-17T22:45:16+10:30</lastmod>
   </url><url>
-    <loc>https://lachlans7.com/post/2024/htbca/htb_cyber_apocalypse/</loc>
+    <loc>http://localhost:1313/post/2024/htbca/htb_cyber_apocalypse/</loc>
     <lastmod>2024-03-17T22:45:16+10:30</lastmod>
   </url><url>
-    <loc>https://lachlans7.com/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2024-03-17T22:45:16+10:30</lastmod>
   </url><url>
-    <loc>https://lachlans7.com/post/</loc>
+    <loc>http://localhost:1313/post/</loc>
     <lastmod>2024-03-17T22:45:16+10:30</lastmod>
   </url><url>
-    <loc>https://lachlans7.com/categories/pwn/</loc>
+    <loc>http://localhost:1313/categories/pwn/</loc>
     <lastmod>2024-03-17T22:45:16+10:30</lastmod>
   </url><url>
-    <loc>https://lachlans7.com/categories/write-ups/</loc>
+    <loc>http://localhost:1313/categories/write-ups/</loc>
     <lastmod>2024-03-17T22:45:16+10:30</lastmod>
   </url><url>
-    <loc>https://lachlans7.com/readme/</loc>
+    <loc>http://localhost:1313/readme/</loc>
     <lastmod>2024-03-17T01:50:06+10:30</lastmod>
   </url><url>
-    <loc>https://lachlans7.com/categories/crypto/</loc>
+    <loc>http://localhost:1313/categories/crypto/</loc>
     <lastmod>2024-03-17T00:32:25+10:30</lastmod>
   </url><url>
-    <loc>https://lachlans7.com/post/2023/duckctf/a_based_crypto_challenge/</loc>
+    <loc>http://localhost:1313/post/2023/duckctf/a_based_crypto_challenge/</loc>
     <lastmod>2024-03-17T00:32:25+10:30</lastmod>
   </url><url>
-    <loc>https://lachlans7.com/post/2023/duckctf/easy_overflow/</loc>
+    <loc>http://localhost:1313/post/2023/duckctf/easy_overflow/</loc>
     <lastmod>2024-03-17T00:31:14+10:30</lastmod>
   </url><url>
-    <loc>https://lachlans7.com/post/2023/duckctf/homebrewed_block_cipher/</loc>
+    <loc>http://localhost:1313/post/2023/duckctf/homebrewed_block_cipher/</loc>
     <lastmod>2024-03-17T00:32:15+10:30</lastmod>
   </url><url>
-    <loc>https://lachlans7.com/post/2023/duckctf/not_so_standard_substitution_cipher/</loc>
+    <loc>http://localhost:1313/post/2023/duckctf/not_so_standard_substitution_cipher/</loc>
     <lastmod>2024-03-17T00:31:19+10:30</lastmod>
   </url><url>
-    <loc>https://lachlans7.com/post/2023/duckctf/return_address_override/</loc>
+    <loc>http://localhost:1313/post/2023/duckctf/return_address_override/</loc>
     <lastmod>2024-03-17T00:33:08+10:30</lastmod>
   </url><url>
-    <loc>https://lachlans7.com/post/2023/duckctf/the_lost_book/</loc>
+    <loc>http://localhost:1313/post/2023/duckctf/the_lost_book/</loc>
     <lastmod>2024-03-17T01:14:30+10:30</lastmod>
   </url><url>
-    <loc>https://lachlans7.com/categories/osint/</loc>
+    <loc>http://localhost:1313/categories/osint/</loc>
     <lastmod>2024-03-17T01:14:30+10:30</lastmod>
   </url><url>
-    <loc>https://lachlans7.com/post/2021/angstromctf/substitution/</loc>
+    <loc>http://localhost:1313/post/2021/angstromctf/substitution/</loc>
     <lastmod>2024-03-17T00:39:04+10:30</lastmod>
   </url><url>
-    <loc>https://lachlans7.com/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
   </url>
 </urlset>
