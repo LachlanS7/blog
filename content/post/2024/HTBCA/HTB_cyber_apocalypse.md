@@ -60,8 +60,8 @@ pt0 = pt >> N
 pt1 = pt & (2**N - 1)
 
 # Break the hash into 16 byte blocks
-ht0 = hash >> 128
-ht1 = hash & (2**(128) - 1)
+ht0 = hash >> N
+ht1 = hash & (2**(N) - 1)
 
 # Recover the hash_step results
 H0 = pt0 ^^ ht0
@@ -134,7 +134,7 @@ I = identity_matrix(F, N)
 M = R**r4 + I
 
 # Solving for K_2
-K2 = M.solve_right(isoMap(H1) + isoMap(H2))
+K2 = M.solve_right(isoMap(H0) + isoMap(H1))
 K2 = invIsoMap(K2)
 ```
 
@@ -153,3 +153,95 @@ Put all together, we have the following steps to our solution:
 6. Repeat for all 3 rounds!
 
 Putting this all together using `pwntools` and SageMath gives us the following script
+> {{<details "`solution.sage`">}}
+```sage
+from pwn import *
+
+# Defining N
+N = 128
+
+# Defining the Galois field (Z_2)
+F = GF(2)
+
+# Defining isomorpism maps
+isoMap = lambda n: vector(F, [0 if n & 2**i == 0 else 1 for i in range(N)])
+invIsoMap = lambda b: sum([int(b[i]) * 2 ** i for i in range(len(b))])
+
+# Creating rotation matrix and identity matrix
+R = matrix(GF(2), N, N, lambda i,j: (i - 1) % N == j)
+I = identity_matrix(F, N)
+
+# Connecting to server
+addr = "94.237.49.166"
+port = 40937
+local = False
+
+if local:
+    shell = process(["python", "server.py"])
+else:
+    shell = remote(addr, port)
+
+# Clearing out server intro
+shell.recvline()
+
+# Making an array for used states cannot be reused
+usedStates = []
+
+for i in range(3):
+    # Getting plaintext and hash
+    info = shell.recvlines(2)[-1].split(b" ")
+    pt = int(info[2][2:-1], 16)
+    hash = int(info[-1], 16)
+
+    # Break the plaintext (pt) into 16 byte blocks
+    pt0 = pt >> N
+    pt1 = pt & (2**N - 1)
+
+    # Break the hash into 16 byte blocks
+    ht0 = hash >> N
+    ht1 = hash & (2**(N) - 1)
+
+    # Recover the hash_step results
+    H0 = pt0 ^^ ht0
+    H1 = pt1 ^^ ht1
+
+
+    # For loop over possible r4
+    for r4 in range(2,N):
+        if r4 in usedStates:
+            continue
+
+        # Creating the matrix on the LHS of the defining equation
+        M = R**r4 + I
+
+        # Solving for K_2
+        try:
+            K2 = M.solve_right(isoMap(H0) + isoMap(H1))
+        except:
+            continue
+
+        # Calculating K_1
+        K1 = isoMap(H1) + (R**r4) * K2
+
+        # Converting K1 and K2 to numbers
+        K1 = invIsoMap(K1)
+        K2 = invIsoMap(K2)
+
+        # Sending state back to server
+        state = [0, 0, 0, r4, K1, K2]
+        usedStates.append(r4)
+
+        response = ','.join(map(str, state))
+        shell.sendline(response.encode())
+        shell.recvline()
+        break
+
+print(shell.recvline().split(b" ")[-1])
+shell.close()
+```
+{{</details>}}
+
+
+This gives us the flag
+
+`HTB{k33p_r0t4t1ng_4nd_r0t4t1ng_4nd_x0r1ng_4nd_r0t4t1ng!}`

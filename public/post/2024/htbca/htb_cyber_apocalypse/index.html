@@ -115,9 +115,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Sun, 17 Mar 2024 20:22:42 &#43;1030"
+                  Modified <relative-time datetime="Sun, 17 Mar 2024 22:45:16 &#43;1030"
                     class="no-wrap">
-                    Sun, 17 Mar 2024 20:22:42 &#43;1030</relative-time>
+                    Sun, 17 Mar 2024 22:45:16 &#43;1030</relative-time>
                   
                 </div>
               </div>
@@ -147,7 +147,7 @@
                         </div>
                       </div>
                     </details-menu>
-                      1300 Words
+                      1597 Words
                     
 
                   </div>
@@ -203,8 +203,8 @@
 </span></span><span class="line"><span class="cl"><span class="n">pt1</span> <span class="o">=</span> <span class="n">pt</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Break the hash into 16 byte blocks</span>
-</span></span><span class="line"><span class="cl"><span class="n">ht0</span> <span class="o">=</span> <span class="nb">hash</span> <span class="o">&gt;&gt;</span> <span class="mi">128</span>
-</span></span><span class="line"><span class="cl"><span class="n">ht1</span> <span class="o">=</span> <span class="nb">hash</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ht0</span> <span class="o">=</span> <span class="nb">hash</span> <span class="o">&gt;&gt;</span> <span class="n">N</span>
+</span></span><span class="line"><span class="cl"><span class="n">ht1</span> <span class="o">=</span> <span class="nb">hash</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Recover the hash_step results</span>
 </span></span><span class="line"><span class="cl"><span class="n">H0</span> <span class="o">=</span> <span class="n">pt0</span> <span class="o">^^</span> <span class="n">ht0</span>
@@ -265,7 +265,7 @@ This equation can be efficently solved! To do this, we will use <a href="https:/
 </span></span><span class="line"><span class="cl"><span class="n">M</span> <span class="o">=</span> <span class="n">R</span><span class="o">**</span><span class="n">r4</span> <span class="o">+</span> <span class="n">I</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Solving for K_2</span>
-</span></span><span class="line"><span class="cl"><span class="n">K2</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">solve_right</span><span class="p">(</span><span class="n">isoMap</span><span class="p">(</span><span class="n">H1</span><span class="p">)</span> <span class="o">+</span> <span class="n">isoMap</span><span class="p">(</span><span class="n">H2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">K2</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">solve_right</span><span class="p">(</span><span class="n">isoMap</span><span class="p">(</span><span class="n">H0</span><span class="p">)</span> <span class="o">+</span> <span class="n">isoMap</span><span class="p">(</span><span class="n">H1</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="n">K2</span> <span class="o">=</span> <span class="n">invIsoMap</span><span class="p">(</span><span class="n">K2</span><span class="p">)</span>
 </span></span></code></pre></div><p>This does however beg one question: what is $r_4$? While there might be some ways to calculate valid values of $r_4$, it is just easier to bruteforce a value of $r_4$ as we have to check at most $N$ (128) values of $r_4$ before we find a valid one. In fact, this value is even lower, as if the random state used on the server had an $r_4$ value of $r_4&rsquo;$, then there will be
 $$\frac{N}{gcd(N, r_4&rsquo;)}$$
@@ -281,6 +281,100 @@ valid values of $r_4$. Thus as solving <em>equation (2)</em> is very efficient, 
 <li>Repeat for all 3 rounds!</li>
 </ol>
 <p>Putting this all together using <code>pwntools</code> and SageMath gives us the following script</p>
+<blockquote>
+<details>
+  <summary><code>solution.sage</code></summary>
+  <p></p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sage" data-lang="sage"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Defining N</span>
+</span></span><span class="line"><span class="cl"><span class="n">N</span> <span class="o">=</span> <span class="mi">128</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Defining the Galois field (Z_2)</span>
+</span></span><span class="line"><span class="cl"><span class="n">F</span> <span class="o">=</span> <span class="n">GF</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Defining isomorpism maps</span>
+</span></span><span class="line"><span class="cl"><span class="n">isoMap</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">vector</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span> <span class="k">if</span> <span class="n">n</span> <span class="o">&amp;</span> <span class="mi">2</span><span class="o">**</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)])</span>
+</span></span><span class="line"><span class="cl"><span class="n">invIsoMap</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">b</span><span class="p">:</span> <span class="nb">sum</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">))])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Creating rotation matrix and identity matrix</span>
+</span></span><span class="line"><span class="cl"><span class="n">R</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">(</span><span class="n">GF</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">:</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">N</span> <span class="o">==</span> <span class="n">j</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">I</span> <span class="o">=</span> <span class="n">identity_matrix</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Connecting to server</span>
+</span></span><span class="line"><span class="cl"><span class="n">addr</span> <span class="o">=</span> <span class="s2">&#34;94.237.49.166&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">port</span> <span class="o">=</span> <span class="mi">40937</span>
+</span></span><span class="line"><span class="cl"><span class="n">local</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">local</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">shell</span> <span class="o">=</span> <span class="n">process</span><span class="p">([</span><span class="s2">&#34;python&#34;</span><span class="p">,</span> <span class="s2">&#34;server.py&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">shell</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Clearing out server intro</span>
+</span></span><span class="line"><span class="cl"><span class="n">shell</span><span class="o">.</span><span class="n">recvline</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Making an array for used states cannot be reused</span>
+</span></span><span class="line"><span class="cl"><span class="n">usedStates</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Getting plaintext and hash</span>
+</span></span><span class="line"><span class="cl">    <span class="n">info</span> <span class="o">=</span> <span class="n">shell</span><span class="o">.</span><span class="n">recvlines</span><span class="p">(</span><span class="mi">2</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s2">&#34; &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">16</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">hash</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">16</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Break the plaintext (pt) into 16 byte blocks</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pt0</span> <span class="o">=</span> <span class="n">pt</span> <span class="o">&gt;&gt;</span> <span class="n">N</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pt1</span> <span class="o">=</span> <span class="n">pt</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Break the hash into 16 byte blocks</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ht0</span> <span class="o">=</span> <span class="nb">hash</span> <span class="o">&gt;&gt;</span> <span class="n">N</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ht1</span> <span class="o">=</span> <span class="nb">hash</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Recover the hash_step results</span>
+</span></span><span class="line"><span class="cl">    <span class="n">H0</span> <span class="o">=</span> <span class="n">pt0</span> <span class="o">^^</span> <span class="n">ht0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">H1</span> <span class="o">=</span> <span class="n">pt1</span> <span class="o">^^</span> <span class="n">ht1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># For loop over possible r4</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">r4</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">r4</span> <span class="ow">in</span> <span class="n">usedStates</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Creating the matrix on the LHS of the defining equation</span>
+</span></span><span class="line"><span class="cl">        <span class="n">M</span> <span class="o">=</span> <span class="n">R</span><span class="o">**</span><span class="n">r4</span> <span class="o">+</span> <span class="n">I</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Solving for K_2</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">K2</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">solve_right</span><span class="p">(</span><span class="n">isoMap</span><span class="p">(</span><span class="n">H0</span><span class="p">)</span> <span class="o">+</span> <span class="n">isoMap</span><span class="p">(</span><span class="n">H1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">except</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Calculating K_1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">K1</span> <span class="o">=</span> <span class="n">isoMap</span><span class="p">(</span><span class="n">H1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">R</span><span class="o">**</span><span class="n">r4</span><span class="p">)</span> <span class="o">*</span> <span class="n">K2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Converting K1 and K2 to numbers</span>
+</span></span><span class="line"><span class="cl">        <span class="n">K1</span> <span class="o">=</span> <span class="n">invIsoMap</span><span class="p">(</span><span class="n">K1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">K2</span> <span class="o">=</span> <span class="n">invIsoMap</span><span class="p">(</span><span class="n">K2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Sending state back to server</span>
+</span></span><span class="line"><span class="cl">        <span class="n">state</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r4</span><span class="p">,</span> <span class="n">K1</span><span class="p">,</span> <span class="n">K2</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">usedStates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">response</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">state</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">shell</span><span class="o">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="n">shell</span><span class="o">.</span><span class="n">recvline</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">shell</span><span class="o">.</span><span class="n">recvline</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s2">&#34; &#34;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">shell</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span></code></pre></div>
+  <p></p>
+</details>
+
+</blockquote>
+<p>This gives us the flag</p>
+<p><code>HTB{k33p_r0t4t1ng_4nd_r0t4t1ng_4nd_x0r1ng_4nd_r0t4t1ng!}</code></p>
 </article>
               </div>
             </div>

@@ -6,8 +6,15 @@
     <description>Recent content in Write-Ups on LachlanS7&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Mar 2024 01:14:30 +1030</lastBuildDate>
+    <lastBuildDate>Sun, 17 Mar 2024 22:36:12 +1030</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/write-ups/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cyber Apocalypse 2024 - ROT128</title>
+      <link>http://localhost:1313/post/2024/htbca/htb_cyber_apocalypse/</link>
+      <pubDate>Sun, 17 Mar 2024 17:22:12 +1030</pubDate>
+      <guid>http://localhost:1313/post/2024/htbca/htb_cyber_apocalypse/</guid>
+      <description>A mathematician’s solution to ROT128</description>
+    </item>
     <item>
       <title>DuckCTF 2023 - A Based Crypto Challenge</title>
       <link>http://localhost:1313/post/2023/duckctf/a_based_crypto_challenge/</link>
