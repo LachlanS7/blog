@@ -2,7 +2,6 @@ baseURL = 'https://lachlans7.com'
 languageCode = 'en-us'
 title = "LachlanS7's Blog"
 theme = 'github-style'
-RelativeURLs=true
 CanonifyURLs=true
 
 googleAnalytics = "UA-123456-789"
