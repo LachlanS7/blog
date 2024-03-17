@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pwn on LachlanS7&#39;s Blog</title>
-    <link>http://localhost:1313/categories/pwn/</link>
+    <link>https://lachlans7.com/categories/pwn/</link>
     <description>Recent content in Pwn on LachlanS7&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Mar 2024 22:36:12 +1030</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/pwn/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Mar 2024 22:45:16 +1030</lastBuildDate>
+    <atom:link href="https://lachlans7.com/categories/pwn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cyber Apocalypse 2024 - ROT128</title>
-      <link>http://localhost:1313/post/2024/htbca/htb_cyber_apocalypse/</link>
+      <link>https://lachlans7.com/post/2024/htbca/htb_cyber_apocalypse/</link>
       <pubDate>Sun, 17 Mar 2024 17:22:12 +1030</pubDate>
-      <guid>http://localhost:1313/post/2024/htbca/htb_cyber_apocalypse/</guid>
+      <guid>https://lachlans7.com/post/2024/htbca/htb_cyber_apocalypse/</guid>
       <description>A mathematician’s solution to ROT128</description>
     </item>
     <item>
       <title>DuckCTF 2023 - Easy Overflow</title>
-      <link>http://localhost:1313/post/2023/duckctf/easy_overflow/</link>
+      <link>https://lachlans7.com/post/2023/duckctf/easy_overflow/</link>
       <pubDate>Fri, 04 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2023/duckctf/easy_overflow/</guid>
+      <guid>https://lachlans7.com/post/2023/duckctf/easy_overflow/</guid>
       <description>I store all of my private data in all of my programs. I mean, why not? It is safe, right&amp;hellip;</description>
     </item>
     <item>
       <title>DuckCTF 2023 - Return Address Override</title>
-      <link>http://localhost:1313/post/2023/duckctf/return_address_override/</link>
+      <link>https://lachlans7.com/post/2023/duckctf/return_address_override/</link>
       <pubDate>Fri, 04 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2023/duckctf/return_address_override/</guid>
+      <guid>https://lachlans7.com/post/2023/duckctf/return_address_override/</guid>
       <description>Ok. So buffer overflows exist, but if I put my data in a different function, my private data will be safe from buffer overflows.</description>
     </item>
   </channel>
