@@ -1,8 +1,8 @@
-baseURL = 'https://lachlans7.com'
+baseURL = 'https://lachlans7.com/'
 languageCode = 'en-us'
 title = "LachlanS7's Blog"
 theme = 'github-style'
-relativeURLs = true
+relativeURLs = false
 canonifyURLs = false
 
 googleAnalytics = "UA-123456-789"
@@ -11,9 +11,9 @@ pygmentsUseClasses = true
 
 [params]
   author = "LachlanS7"
-  description = ""
+  description = "Mathematican and Physicist"
   github = "LachlanS7"
-  linkedin = "Lachlan Schilling"
+  linkedin = "lachlan_schilling"
   email = "lwschill73@gmail.com"
   url = "https://lachlans7.com"
   keywords = "blog, google analytics"
@@ -28,12 +28,12 @@ pygmentsUseClasses = true
   math = true
 
   [params.gitalk]
-    clientID = "Your client ID"
-    clientSecret = "Your client secret"
-    repo = "repo"
+    clientID = ""
+    clientSecret = ""
+    repo = "blog"
     owner = "LachlanS7"
     admin = "LachlanS7"
-    id = "location.pathname"
+    #id = "location.pathname"
     labels = "gitalk"
     perPage = 15
     pagerDirection = "last"
@@ -41,12 +41,8 @@ pygmentsUseClasses = true
     distractionFreeMode = false
 
   [[params.links]]
-    title = "Link"
-    href = "https://github.com/meik2333"
-  [[params.links]]
-    title = "Link2"
-    href = "https://meik2333.com"
-    icon = "https://meik2333.com/images/avatar.png"
+    title = "Link1"
+    href = "https://lachlans7.com"
 
 [frontmatter]
   lastmod = ["lastmod", ":fileModTime", ":default"]
